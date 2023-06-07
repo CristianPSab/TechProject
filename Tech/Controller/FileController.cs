@@ -20,12 +20,10 @@ namespace Tech.Controller
     public class FileController
     {
         private readonly FileModel _model;
-        private readonly DataViewManager _view;
 
-        public FileController(FileModel model, DataViewManager view)
+        public FileController(FileModel model)
         {
             _model = model;
-            _view = view;
         }
 
      

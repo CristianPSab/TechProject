@@ -25,17 +25,19 @@ namespace Tech
         public void Run()
         {
             var model = new FileModel();
-            var view = new DataViewManager();
-            var controller = new FileController(model, view);
-            controller.ReadFileCSV();
+            var controller = new FileController(model);
+            var data = controller.ReadFileCSV();
     
 
-            var lastT = new Dates();
+            var days = new Dates();
+     
             DateTime start = new DateTime(2001, 5, 1);
             DateTime end = new DateTime(2017, 12, 28);
 
 
-            var allThursdays = lastT.GetLastThursdays(start, end);
+            var allThursdays = days.GetLastThursdays(start, end);
+
+            var listingDays = days.GetNextDay(allThursdays, data);
 
          
 
