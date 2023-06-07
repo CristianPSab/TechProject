@@ -74,7 +74,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Dates.cs" />
-    <Compile Include="View\View.cs" />
+    <Compile Include="View\ThursdaysView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

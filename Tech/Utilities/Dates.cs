@@ -47,5 +47,20 @@ namespace Tech.Utilities
             }
             return lastThursdays;
         }
+
+        public List<FileModel> GetNextDay (List<DateTime> thursdays, List<FileModel> data) 
+        {
+            var listingDays = new List<FileModel>();
+            
+            foreach (var day in thursdays)
+            {
+               var listinDay = data.Where((x, i) => i < (data.Count - 1) && x.Date > day).LastOrDefault();
+                
+                if (listinDay != null)
+                listingDays.Add(listinDay);
+            } 
+
+            return listingDays;
+        }
     }
 }
