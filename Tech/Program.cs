@@ -35,9 +35,9 @@ namespace Tech
             DateTime end = new DateTime(2017, 12, 28);
 
 
-            var allThursdays = lastT.GenerateAllThursdays(start, end);
+            var allThursdays = lastT.GetLastThursdays(start, end);
 
-          //  lastT.GetLastThursdayInMonth(latestThursdays, month,  year, allThursdays);
+         
 
             Console.ReadKey();
         }

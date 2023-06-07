@@ -7,19 +7,17 @@ using Tech.Model;
 
 namespace Tech.Utilities
 {
-    public  class Dates
+    public class Dates
     {
 
-      
+
 
         public List<DateTime> GenerateAllThursdays(DateTime start, DateTime end)
         {
-           
 
+            var allThursdays = new List<DateTime>();
 
-            List<DateTime> allThursdays = new List<DateTime>();
-
-            DateTime currentDate = start;
+            var currentDate = start;
             while (currentDate <= end)
             {
                 if (currentDate.DayOfWeek == DayOfWeek.Thursday)
@@ -31,15 +29,23 @@ namespace Tech.Utilities
             return allThursdays;
         }
 
-        public  DateTime GetLastThursdayInMonth(
-          List<DateTime> latestThursdays, int month, int year, List<DateTime> allThursdays)
+
+        public List<DateTime> GetLastThursdays(DateTime start, DateTime end)
         {
-            var lastThursday = new DateTime(year, month, DateTime.DaysInMonth(year, month));
+            var thursdays = GenerateAllThursdays(start, end);
+            var lastThursdays = new List<DateTime>();
 
-            while (lastThursday.DayOfWeek != DayOfWeek.Thursday)
-                lastThursday = lastThursday.AddDays(-1);
+            foreach (var currentDate in thursdays)
+            {
+                var currentMonth = currentDate.Month;
 
-            return lastThursday;
-        }    
+                if(currentDate.AddDays(7).Month != currentMonth)
+                {
+                    lastThursdays.Add(currentDate);
+                }
+
+            }
+            return lastThursdays;
+        }
     }
 }
